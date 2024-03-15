@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>La Liga Standings</title>
+    <style>
+        th, td {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50px;
+            max-height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">La Liga Standings</h1>
+    
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Club</th>
+                <th scope="col">Name</th>
+                <th scope="col">GamePlayed</th>
+                <th scope="col">Win</th>
+                <th scope="col">Ties</th>
+                <th scope="col">Losses</th>
+                <th scope="col">Points</th>
+                <th scope="col">Rank</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+                <tr>
+                    <td><img src="{{ i.team.logo}}" alt="" style="width: 55px; height: 47px;"></td>
+                    <th scope="row">{{ i.team.name }}</th>
+                    <td>{{ i.stats.gamesPlayed}}</td>
+                    <td>{{ i.stats.wins}}</td>
+                    <td>{{ i.stats.losses}}</td>
+                    <td>{{ i.stats.ties}}</td>
+                    <td>{{ i.stats.points}}</td>
+                    <td>{{ i.stats.rank}}</td>
+                </tr>
+        {% endfor %}
+        </thead>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
